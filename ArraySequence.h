@@ -22,6 +22,7 @@ public:
 template <std::default_initializable T>
 class ArraySequence final : public Sequence<T> {
 private:
+    int capacity_;
     T* data_;
     int capacity_;
     int length_;
