@@ -5,11 +5,11 @@
 #include <utility>
 
 class Person {
-    std::string firstName;   // Имя
-    std::string lastName;    // Фамилия
-    int birthYear;           // Год рождения
-    double height;           // Рост
-    double weight;           // Вес
+    std::string firstName;
+    std::string lastName;
+    int birthYear;
+    double height;
+    double weight;
 
 public:
     Person() = default;

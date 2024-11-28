@@ -10,4 +10,5 @@ add_executable(lab_2 main.cpp
         QuickSort.h
         MergeSort.h
         CountingSort.h
-        Person.h)
+        Person.h
+        DefaultComparators.h)
