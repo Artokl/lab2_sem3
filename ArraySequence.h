@@ -29,7 +29,6 @@ public:
     using reference = T&;
     using const_reference = const T&;
 
-    // Constructors and Destructor
     ArraySequence() : data_(nullptr), capacity_(0), length_(0) {}
 
     explicit ArraySequence(const int size) : data_(nullptr), capacity_(size + 1), length_(size) {
@@ -48,7 +47,6 @@ public:
         delete[] data_;
     }
 
-    // Sequence interface implementation
     T GetFirst() const override {
         if (length_ == 0) throw std::out_of_range("Sequence is empty");
         return data_[0];
@@ -99,7 +97,6 @@ public:
         return true;
     }
 
-    // Resize the array
     void Resize(const int newSize) {
         if (newSize < 0) throw std::invalid_argument("Invalid size");
         if (newSize == 0) {

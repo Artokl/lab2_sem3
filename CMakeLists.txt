@@ -9,4 +9,5 @@ add_executable(lab_2 main.cpp
         Sequence.h
         QuickSort.h
         MergeSort.h
-        CountingSort.h)
+        CountingSort.h
+        Person.h)
