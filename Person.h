@@ -25,7 +25,7 @@ public:
 
     [[nodiscard]] std::string getFirstName() const { return firstName; }
     [[nodiscard]] std::string getLastName() const { return lastName; }
-    [[nodiscard]] int getBirthYear() const { return birthYear; }
+    [[nodiscard]] int getAge() const { return 2024 - birthYear; }
     [[nodiscard]] double getHeight() const { return height; }
     [[nodiscard]] double getWeight() const { return weight; }
 
