@@ -9,8 +9,11 @@ add_executable(lab_2 main.cpp
         Sequence.h
         QuickSort.h
         MergeSort.h
-        CountingSort.h
         Person.h
         DefaultComparators.h
         PersonComparators.h
-        Generator.h)
+        Generator.h
+        Tests/QuickSortTests.h
+        Tests/MergeSortTests.h
+        BinaryInsertionSort.h
+        Tests/BinaryInsertionSortTests.h)

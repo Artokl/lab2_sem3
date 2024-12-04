@@ -5,11 +5,11 @@
 #include "DefaultComparators.h"
 
 inline int AscendingComparatorByAge(const Person& a, const Person& b) {
-    return AscendingComparator(a.getAge(), b.getAge());
+    return DescendingComparator(a.getAge(), b.getAge());
 }
 
 inline int DescendingComparatorByAge(const Person& a, const Person& b) {
-    return DescendingComparator(a.getAge(), b.getAge());
+    return AscendingComparator(a.getAge(), b.getAge());
 }
 
 inline int AscendingComparatorByHeight(const Person& a, const Person& b) {

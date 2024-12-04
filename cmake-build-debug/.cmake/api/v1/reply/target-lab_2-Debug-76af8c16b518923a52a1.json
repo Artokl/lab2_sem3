@@ -105,7 +105,10 @@
 				7,
 				8,
 				9,
-				10
+				10,
+				11,
+				12,
+				13
 			]
 		}
 	],
@@ -144,11 +147,6 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "CountingSort.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"path" : "Person.h",
 			"sourceGroupIndex" : 1
 		},
@@ -165,6 +163,26 @@
 		{
 			"backtrace" : 1,
 			"path" : "Generator.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Tests/QuickSortTests.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Tests/MergeSortTests.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "BinaryInsertionSort.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Tests/BinaryInsertionSortTests.h",
 			"sourceGroupIndex" : 1
 		}
 	],
