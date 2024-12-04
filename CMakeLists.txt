@@ -12,4 +12,5 @@ add_executable(lab_2 main.cpp
         CountingSort.h
         Person.h
         DefaultComparators.h
-        PersonComparators.h)
+        PersonComparators.h
+        Generator.h)

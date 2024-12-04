@@ -1,7 +1,12 @@
-#include <iostream>
 #include "ArraySequence.h"
+#include "Generator.h"
+#include "PersonComparators.h"
+#include "QuickSort.h"
 
 int main() {
-    printf("Hello, World!");
-    return 0;
+    ArraySequence<Person> persons;
+    GettingDataFromFile("persons.csv", persons);
+    const QuickSorter<Person> sorter;
+    sorter.Sort(persons, AscendingComparatorByHeight);
+    PuttingDataToFile("output.csv", persons);
 }

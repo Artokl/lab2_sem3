@@ -36,6 +36,7 @@ public:
     void setWeight(const double weight) { this->weight = weight; }
 
     ~Person() = default;
+
 };
 
 #endif // PERSON_H
