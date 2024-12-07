@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QListWidget>
 #include <QPushButton>
+#include <QComboBox>
 #include <QProgressBar>
 #include <QGroupBox>
 #include <QLabel>
@@ -15,7 +16,7 @@
 #include "../Tests/MergeSortTests.h"
 #include "../Tests/BinaryInsertionSortTests.h"
 
-class TestMenu : public QMainWindow {
+class TestMenu final : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -26,120 +27,110 @@ public:
         auto* centralWidget = new QWidget(this);
         auto* mainLayout = new QVBoxLayout(centralWidget);
 
-        auto* quickSortGroup = createTestGroup("QuickSort Тесты");
-        auto* mergeSortGroup = createTestGroup("MergeSort Тесты");
-        auto* binaryInsertionGroup = createTestGroup("BinaryInsertionSort Тесты");
+        sortingSelector = new QComboBox(this);
+        sortingSelector->addItem("Быстрая");
+        sortingSelector->addItem("Слиянием");
+        sortingSelector->addItem("Бинарная вставка");
+        connect(sortingSelector, &QComboBox::currentTextChanged, this, &TestMenu::updateTestList);
+        mainLayout->addWidget(sortingSelector);
 
-        mainLayout->addWidget(quickSortGroup);
-        mainLayout->addWidget(mergeSortGroup);
-        mainLayout->addWidget(binaryInsertionGroup);
-        
-        auto* runTestsButton = new QPushButton("Запустить все тесты", this);
-        connect(runTestsButton, &QPushButton::clicked, this, &TestMenu::runAllTests);
-        mainLayout->addWidget(runTestsButton);
+        testListWidget = new QListWidget(this);
+        QFont font = testListWidget->font();
+        font.setPointSize(font.pointSize() * 2);
+        testListWidget->setFont(font);
+        mainLayout->addWidget(testListWidget);
 
         progressBar = new QProgressBar(this);
         progressBar->setRange(0, 100);
         progressBar->setValue(0);
         mainLayout->addWidget(progressBar);
 
+        auto* runTestsButton = new QPushButton("Запустить тесты", this);
+        connect(runTestsButton, &QPushButton::clicked, this, &TestMenu::runSelectedTests);
+        mainLayout->addWidget(runTestsButton);
+
         centralWidget->setLayout(mainLayout);
         setCentralWidget(centralWidget);
 
         initTestGroups();
+        updateTestList();
     }
 
 private slots:
-    void runAllTests() {
+    void runSelectedTests() {
         progressBar->setValue(0);
-        int totalTests = 0;
+        int totalTests = testListWidget->count();
         int successfulTests = 0;
 
-        for (auto it = testGroups.begin(); it != testGroups.end(); ++it) {
-            QListWidget* listWidget = it.value();
-            for (int i = 0; i < listWidget->count(); ++i) {
-                QListWidgetItem* item = listWidget->item(i);
-                auto testFunc = item->data(Qt::UserRole).value<std::function<bool()>>();
-                bool success = testFunc();
+        for (int i = 0; i < testListWidget->count(); ++i) {
+            QListWidgetItem* item = testListWidget->item(i);
+            auto testFunc = item->data(Qt::UserRole).value<std::function<bool()>>();
+            bool success = testFunc();
 
-                item->setText(item->text() + (success ? " - УСПЕШНО" : " - НЕУСПЕШНО"));
-                item->setBackground(success ? Qt::green : Qt::red);
+            item->setText(item->text() + (success ? " - УСПЕШНО" : " - НЕУСПЕШНО"));
+            item->setBackground(success ? Qt::green : Qt::red);
 
-                if (success) ++successfulTests;
-                ++totalTests;
+            if (success) ++successfulTests;
 
-                progressBar->setValue((totalTests * 100) / getTotalTestCount());
-                QApplication::processEvents();
-            }
+            progressBar->setValue(((i + 1) * 100) / totalTests);
+            QCoreApplication::processEvents();
         }
 
         QString result = QString("Тесты завершены: %1/%2 успешно.")
-                                 .arg(successfulTests)
-                                 .arg(getTotalTestCount());
+                             .arg(successfulTests)
+                             .arg(totalTests);
         QLabel* resultLabel = new QLabel(result, this);
         static_cast<QVBoxLayout*>(centralWidget()->layout())->addWidget(resultLabel);
     }
 
-private:
-    QMap<QString, QListWidget*> testGroups; 
-    QProgressBar* progressBar;             
+    void updateTestList() {
+        QString selectedSort = sortingSelector->currentText();
+        testListWidget->clear();
 
-    QGroupBox* createTestGroup(const QString& title) {
-        auto* group = new QGroupBox(title, this);
-        auto* layout = new QVBoxLayout(group);
-
-        auto* listWidget = new QListWidget(this);
-        layout->addWidget(listWidget);
-
-        testGroups[title] = listWidget;
-        return group;
+        if (testGroups.contains(selectedSort)) {
+            QList<QPair<QString, std::function<bool()>>> tests = testGroups[selectedSort];
+            for (const auto& test : tests) {
+                auto* item = new QListWidgetItem(test.first, testListWidget);
+                QVariant testFuncVariant;
+                testFuncVariant.setValue(test.second);
+                item->setData(Qt::UserRole, testFuncVariant);
+            }
+        }
     }
+
+private:
+    QComboBox* sortingSelector;
+    QListWidget* testListWidget;
+    QProgressBar* progressBar;
+    QMap<QString, QList<QPair<QString, std::function<bool()>>>> testGroups;
 
     void initTestGroups() {
-        addTest("QuickSort Тесты", "Сортировка по убыванию возраста", []() {
-            return QuickSortDescAgeTest("input.csv");
-        });
-        addTest("QuickSort Тесты", "Сортировка по возрастанию возраста", []() {
-            return QuickSortAscAgeTest("input.csv");
-        });
-        addTest("QuickSort Тесты", "Сортировка по убыванию веса", []() {
-            return QuickSortDescWeightTest("input.csv");
-        });
-        addTest("QuickSort Тесты", "Сортировка по возрастанию веса", []() {
-            return QuickSortAscWeightTest("input.csv");
-        });
+        testGroups["Быстрая"] = {
+            {"Сортировка по убыванию возраста", []() { return QuickSortDescAgeTest("input.csv"); }},
+            {"Сортировка по возрастанию возраста", []() { return QuickSortAscAgeTest("input.csv"); }},
+            {"Сортировка по убыванию веса", []() { return QuickSortDescWeightTest("input.csv"); }},
+            {"Сортировка по возрастанию веса", []() { return QuickSortAscWeightTest("input.csv"); }},
+            {"Сортировка по убыванию роста", []() { return QuickSortDescHeightTest("input.csv"); }},
+            {"Сортировка по возрастанию роста", []() { return QuickSortAscHeightTest("input.csv"); }}
+        };
 
-        addTest("MergeSort Тесты", "Сортировка по убыванию роста", []() {
-            return MergeSortDescHeightTest("input.csv");
-        });
-        addTest("MergeSort Тесты", "Сортировка по возрастанию роста", []() {
-            return MergeSortAscHeightTest("input.csv");
-        });
+        testGroups["Слиянием"] = {
+            {"Сортировка по убыванию возраста", []() { return MergeSortDescAgeTest("input.csv"); }},
+            {"Сортировка по возрастанию возраста", []() { return MergeSortAscAgeTest("input.csv"); }},
+            {"Сортировка по убыванию веса", []() { return MergeSortDescWeightTest("input.csv"); }},
+            {"Сортировка по возрастанию веса", []() { return MergeSortAscWeightTest("input.csv"); }},
+            {"Сортировка по убыванию роста", []() { return MergeSortDescHeightTest("input.csv"); }},
+            {"Сортировка по возрастанию роста", []() { return MergeSortAscHeightTest("input.csv"); }}
+        };
 
-        addTest("BinaryInsertionSort Тесты", "Сортировка по убыванию возраста", []() {
-            return BinaryInsertionSortDescAgeTest("input.csv");
-        });
-        addTest("BinaryInsertionSort Тесты", "Сортировка по возрастанию возраста", []() {
-            return BinaryInsertionSortAscAgeTest("input.csv");
-        });
-    }
-
-    void addTest(const QString& group, const QString& testName, std::function<bool()> testFunc) {
-        auto* listWidget = testGroups[group];
-        if (!listWidget) return;
-
-        auto* item = new QListWidgetItem(testName, listWidget);
-        QVariant testFuncVariant;
-        testFuncVariant.setValue(testFunc);
-        item->setData(Qt::UserRole, testFuncVariant);
-    }
-
-    int getTotalTestCount() const {
-        int count = 0;
-        for (auto it = testGroups.begin(); it != testGroups.end(); ++it) {
-            count += it.value()->count();
-        }
-        return count;
+        testGroups["Бинарная вставка"] = {
+            {"Сортировка по убыванию возраста", []() { return BinaryInsertionSortDescAgeTest("input.csv"); }},
+            {"Сортировка по возрастанию возраста", []() { return BinaryInsertionSortAscAgeTest("input.csv"); }},
+            {"Сортировка по убыванию веса", []() { return BinaryInsertionSortDescWeightTest("input.csv"); }},
+            {"Сортировка по возрастанию веса", []() { return BinaryInsertionSortAscWeightTest("input.csv"); }},
+            {"Сортировка по убыванию роста", []() { return BinaryInsertionSortDescHeightTest("input.csv"); }},
+            {"Сортировка по возрастанию роста", []() { return BinaryInsertionSortAscHeightTest("input.csv"); }}
+        };
     }
 };
 

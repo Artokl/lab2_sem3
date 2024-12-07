@@ -12,7 +12,7 @@ inline bool BinaryInsertionSortDescAgeTest(const std::string& path) {
     ArraySequence<Person> persons;
     GettingDataFromFile(path, persons);
     const BinaryInsertionSorter<Person> sorter;
-    sorter.Sort(persons, DescendingComparatorByAge);
+    sorter.Sort(persons, AscendingComparatorByAge);
     for (int i = 0; i < persons.GetLength() - 1; ++i) {
         if (persons[i].getAge() < persons[i + 1].getAge()) {
             return false;
@@ -25,7 +25,7 @@ inline bool BinaryInsertionSortAscAgeTest(const std::string& path) {
     ArraySequence<Person> persons;
     GettingDataFromFile(path, persons);
     const BinaryInsertionSorter<Person> sorter;
-    sorter.Sort(persons, AscendingComparatorByAge);
+    sorter.Sort(persons, DescendingComparatorByAge);
     for (int i = 0; i < persons.GetLength() - 1; ++i) {
         if (persons[i].getAge() > persons[i + 1].getAge()) {
             return false;
