@@ -25,6 +25,8 @@ add_executable(lab_2 main.cpp
         Tests/BinaryInsertionSortTests.h
         Ui/MainMenu.h
         Ui/SortMenu.h
-        Ui/TestMenu.h)
+        Ui/TestMenu.h
+        Ui/SortedDataViewer.h
+        Ui/SortingVisualizer.h)
 
 target_link_libraries(lab_2 PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets)

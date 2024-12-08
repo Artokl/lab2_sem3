@@ -132,7 +132,7 @@ build lab_2_autogen/timestamp lab_2_autogen/mocs_compilation.cpp | ${cmake_ninja
 #############################################
 # Phony custom command for CMakeFiles\lab_2_autogen_timestamp_deps
 
-build CMakeFiles/lab_2_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/lab_2_autogen_timestamp_deps: phony C$:/msys64/mingw64/lib/libQt6Gui.dll.a C$:/msys64/mingw64/share/qt6/bin/moc.exe C$:/msys64/mingw64/lib/libQt6Core.dll.a C$:/msys64/mingw64/share/qt6/bin/uic.exe C$:/msys64/mingw64/lib/libQt6Widgets.dll.a
+build CMakeFiles/lab_2_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/lab_2_autogen_timestamp_deps: phony C$:/msys64/mingw64/lib/libQt6Gui.dll.a C$:/msys64/mingw64/lib/libQt6Core.dll.a C$:/msys64/mingw64/share/qt6/bin/moc.exe C$:/msys64/mingw64/share/qt6/bin/uic.exe C$:/msys64/mingw64/lib/libQt6Widgets.dll.a
 
 
 #############################################

@@ -59,13 +59,13 @@ public:
 private slots:
     void runSelectedTests() {
         progressBar->setValue(0);
-        int totalTests = testListWidget->count();
+        const int totalTests = testListWidget->count();
         int successfulTests = 0;
 
         for (int i = 0; i < testListWidget->count(); ++i) {
             QListWidgetItem* item = testListWidget->item(i);
             auto testFunc = item->data(Qt::UserRole).value<std::function<bool()>>();
-            bool success = testFunc();
+            const bool success = testFunc();
 
             item->setText(item->text() + (success ? " - УСПЕШНО" : " - НЕУСПЕШНО"));
             item->setBackground(success ? Qt::green : Qt::red);
@@ -76,7 +76,7 @@ private slots:
             QCoreApplication::processEvents();
         }
 
-        QString result = QString("Тесты завершены: %1/%2 успешно.")
+        const QString result = QString("Тесты завершены: %1/%2 успешно.")
                              .arg(successfulTests)
                              .arg(totalTests);
         QLabel* resultLabel = new QLabel(result, this);
@@ -84,7 +84,7 @@ private slots:
     }
 
     void updateTestList() {
-        QString selectedSort = sortingSelector->currentText();
+        const QString selectedSort = sortingSelector->currentText();
         testListWidget->clear();
 
         if (testGroups.contains(selectedSort)) {
@@ -124,12 +124,12 @@ private:
         };
 
         testGroups["Бинарная вставка"] = {
-            {"Сортировка по убыванию возраста", []() { return BinaryInsertionSortDescAgeTest("input.csv"); }},
-            {"Сортировка по возрастанию возраста", []() { return BinaryInsertionSortAscAgeTest("input.csv"); }},
-            {"Сортировка по убыванию веса", []() { return BinaryInsertionSortDescWeightTest("input.csv"); }},
-            {"Сортировка по возрастанию веса", []() { return BinaryInsertionSortAscWeightTest("input.csv"); }},
-            {"Сортировка по убыванию роста", []() { return BinaryInsertionSortDescHeightTest("input.csv"); }},
-            {"Сортировка по возрастанию роста", []() { return BinaryInsertionSortAscHeightTest("input.csv"); }}
+            {"Сортировка по убыванию возраста", []() { return BinaryInsertionSortDescAgeTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по возрастанию возраста", []() { return BinaryInsertionSortAscAgeTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по убыванию веса", []() { return BinaryInsertionSortDescWeightTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по возрастанию веса", []() { return BinaryInsertionSortAscWeightTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по убыванию роста", []() { return BinaryInsertionSortDescHeightTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по возрастанию роста", []() { return BinaryInsertionSortAscHeightTest("binaryinsertion_input.csv"); }}
         };
     }
 };

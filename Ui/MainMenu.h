@@ -8,12 +8,12 @@
 #include "SortMenu.h"
 #include "TestMenu.h"
 
-class MainMenu : public QMainWindow {
+class MainMenu final : public QMainWindow {
     Q_OBJECT
 
 public:
     explicit MainMenu(QWidget* parent = nullptr) : QMainWindow(parent) {
-        setWindowTitle("Добро пожаловать");
+        setWindowTitle("Стартовое меню");
         resize(800, 600);
 
         auto* centralWidget = new QWidget(this);

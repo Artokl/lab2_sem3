@@ -311,7 +311,11 @@ lab_2_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
 	C:/msys64/mingw64/include/qt6/QtCore/QCoreApplication \
 	C:/msys64/mingw64/include/qt6/QtCore/QElapsedTimer \
+	C:/msys64/mingw64/include/qt6/QtCore/QFile \
 	C:/msys64/mingw64/include/qt6/QtCore/QMap \
+	C:/msys64/mingw64/include/qt6/QtCore/QString \
+	C:/msys64/mingw64/include/qt6/QtCore/QTextStream \
+	C:/msys64/mingw64/include/qt6/QtCore/QTimer \
 	C:/msys64/mingw64/include/qt6/QtCore/q20functional.h \
 	C:/msys64/mingw64/include/qt6/QtCore/q20iterator.h \
 	C:/msys64/mingw64/include/qt6/QtCore/q20memory.h \
@@ -327,6 +331,7 @@ lab_2_autogen/timestamp: \
 	C:/msys64/mingw64/include/qt6/QtCore/qatomic.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qatomic_cxx11.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qbasicatomic.h \
+	C:/msys64/mingw64/include/qt6/QtCore/qbasictimer.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qbindingstorage.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qbytearray.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qbytearrayalgorithms.h \
@@ -435,6 +440,7 @@ lab_2_autogen/timestamp: \
 	C:/msys64/mingw64/include/qt6/QtCore/qtdeprecationmarkers.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qtenvironmentvariables.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qtextstream.h \
+	C:/msys64/mingw64/include/qt6/QtCore/qtimer.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qtimezone.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qtmetamacros.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qtnoop.h \
@@ -453,6 +459,7 @@ lab_2_autogen/timestamp: \
 	C:/msys64/mingw64/include/qt6/QtCore/qversiontagging.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qxptype_traits.h \
 	C:/msys64/mingw64/include/qt6/QtCore/qyieldcpu.h \
+	C:/msys64/mingw64/include/qt6/QtGui/QBrush \
 	C:/msys64/mingw64/include/qt6/QtGui/qaction.h \
 	C:/msys64/mingw64/include/qt6/QtGui/qbitmap.h \
 	C:/msys64/mingw64/include/qt6/QtGui/qbrush.h \
@@ -468,6 +475,8 @@ lab_2_autogen/timestamp: \
 	C:/msys64/mingw64/include/qt6/QtGui/qinputmethod.h \
 	C:/msys64/mingw64/include/qt6/QtGui/qkeysequence.h \
 	C:/msys64/mingw64/include/qt6/QtGui/qpaintdevice.h \
+	C:/msys64/mingw64/include/qt6/QtGui/qpainter.h \
+	C:/msys64/mingw64/include/qt6/QtGui/qpainterpath.h \
 	C:/msys64/mingw64/include/qt6/QtGui/qpalette.h \
 	C:/msys64/mingw64/include/qt6/QtGui/qpen.h \
 	C:/msys64/mingw64/include/qt6/QtGui/qpicture.h \
@@ -491,15 +500,22 @@ lab_2_autogen/timestamp: \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QApplication \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QComboBox \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QFileDialog \
+	C:/msys64/mingw64/include/qt6/QtWidgets/QGraphicsRectItem \
+	C:/msys64/mingw64/include/qt6/QtWidgets/QGraphicsScene \
+	C:/msys64/mingw64/include/qt6/QtWidgets/QGraphicsView \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QGroupBox \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QHBoxLayout \
+	C:/msys64/mingw64/include/qt6/QtWidgets/QHeaderView \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QLabel \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QLineEdit \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QListWidget \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QMainWindow \
+	C:/msys64/mingw64/include/qt6/QtWidgets/QMessageBox \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QProgressBar \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QPushButton \
+	C:/msys64/mingw64/include/qt6/QtWidgets/QTableWidget \
 	C:/msys64/mingw64/include/qt6/QtWidgets/QVBoxLayout \
+	C:/msys64/mingw64/include/qt6/QtWidgets/QWidget \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qabstractbutton.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qabstractitemdelegate.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qabstractitemview.h \
@@ -510,10 +526,15 @@ lab_2_autogen/timestamp: \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qboxlayout.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qcombobox.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qdialog.h \
+	C:/msys64/mingw64/include/qt6/QtWidgets/qdialogbuttonbox.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qfiledialog.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qframe.h \
+	C:/msys64/mingw64/include/qt6/QtWidgets/qgraphicsitem.h \
+	C:/msys64/mingw64/include/qt6/QtWidgets/qgraphicsscene.h \
+	C:/msys64/mingw64/include/qt6/QtWidgets/qgraphicsview.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qgridlayout.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qgroupbox.h \
+	C:/msys64/mingw64/include/qt6/QtWidgets/qheaderview.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qlabel.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qlayout.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qlayoutitem.h \
@@ -521,14 +542,18 @@ lab_2_autogen/timestamp: \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qlistview.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qlistwidget.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qmainwindow.h \
+	C:/msys64/mingw64/include/qt6/QtWidgets/qmessagebox.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qprogressbar.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qpushbutton.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qrubberband.h \
+	C:/msys64/mingw64/include/qt6/QtWidgets/qscrollarea.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qsizepolicy.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qslider.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qstyle.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qstyleoption.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qtabbar.h \
+	C:/msys64/mingw64/include/qt6/QtWidgets/qtableview.h \
+	C:/msys64/mingw64/include/qt6/QtWidgets/qtablewidget.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qtabwidget.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qtwidgets-config.h \
 	C:/msys64/mingw64/include/qt6/QtWidgets/qtwidgetsexports.h \
@@ -682,6 +707,8 @@ lab_2_autogen/timestamp: \
 	D:/programming/3_sem/lab_2/Tests/QuickSortTests.h \
 	D:/programming/3_sem/lab_2/Ui/MainMenu.h \
 	D:/programming/3_sem/lab_2/Ui/SortMenu.h \
+	D:/programming/3_sem/lab_2/Ui/SortedDataViewer.h \
+	D:/programming/3_sem/lab_2/Ui/SortingVisualizer.h \
 	D:/programming/3_sem/lab_2/Ui/TestMenu.h \
 	D:/programming/3_sem/lab_2/cmake-build-debug/CMakeFiles/3.28.1/CMakeCCompiler.cmake \
 	D:/programming/3_sem/lab_2/cmake-build-debug/CMakeFiles/3.28.1/CMakeCXXCompiler.cmake \

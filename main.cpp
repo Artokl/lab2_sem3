@@ -122,6 +122,8 @@ int main(int argc, char *argv[]) {
     mainMenu.show();
 
     return QApplication::exec();
-/*    std::string fileName = "input.csv";
-    GeneratePersons(fileName, 100000);*/
+
+
+/*    std::string fileName = "binary_input.csv";
+    GeneratePersons(fileName, 10000);*/
 }
