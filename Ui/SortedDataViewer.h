@@ -8,7 +8,7 @@
 #include <QBrush>
 #include <QLabel>
 
-class SortedDataViewer : public QMainWindow {
+class SortedDataViewer final : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -19,13 +19,11 @@ public:
         auto* centralWidget = new QWidget(this);
         auto* layout = new QVBoxLayout(centralWidget);
 
-        // Инициализация таблицы
         tableWidget = new QTableWidget(this);
-        tableWidget->setColumnCount(6); // Добавляем ещё одну колонку для индекса
-        tableWidget->setHorizontalHeaderLabels({"#", "Имя", "Фамилия", "Год рождения", "Рост", "Вес"});
+        tableWidget->setColumnCount(6);
+        tableWidget->setHorizontalHeaderLabels({"", "Имя", "Фамилия", "Год рождения", "Рост", "Вес"});
         tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-        // Отключение автоматического индексирования слева
         tableWidget->verticalHeader()->setVisible(false);
 
         layout->addWidget(tableWidget);
@@ -33,38 +31,36 @@ public:
         setCentralWidget(centralWidget);
     }
 
-    void setData(const QVector<QVector<QString>>& data, int sortColumnIndex = -1) {
-        tableWidget->setRowCount(data.size() + 1); // Увеличить количество строк на 1 для заголовков
+    void setData(const QVector<QVector<QString>>& data, const int sortColumnIndex = -1) const {
+        tableWidget->setRowCount(data.size() + 1);
 
         const QStringList headers = {"", "Имя", "Фамилия", "Год рождения", "Рост", "Вес"};
         for (int j = 0; j < headers.size(); ++j) {
             auto* headerItem = new QTableWidgetItem(headers[j]);
-            headerItem->setFlags(Qt::ItemIsEnabled); // Заголовок нельзя редактировать
-            headerItem->setFont(QFont("Arial", 10, QFont::Bold)); // Жирный шрифт
+            headerItem->setFlags(Qt::ItemIsEnabled);
+            headerItem->setFont(QFont("Arial", 10, QFont::Bold));
             headerItem->setTextAlignment(Qt::AlignCenter);
-            if (j == sortColumnIndex + 1) { // Смещаем индекс для корректного подсвечивания
+            if (j == sortColumnIndex + 1) {
                 headerItem->setBackground(QBrush(Qt::darkMagenta));
                 headerItem->setForeground(QBrush(Qt::white));
             }
-            tableWidget->setItem(0, j, headerItem); // Добавление заголовков
+            tableWidget->setItem(0, j, headerItem);
         }
 
-        // Заполнение данных и индексов
         for (int i = 0; i < data.size(); ++i) {
-            // Установка индекса
-            auto* indexItem = new QTableWidgetItem(QString::number(i + 1)); // Индексация со 2
-            indexItem->setFlags(Qt::ItemIsEnabled); // Индекс нельзя редактировать
+            auto* indexItem = new QTableWidgetItem(QString::number(i + 1));
+            indexItem->setFlags(Qt::ItemIsEnabled);
             indexItem->setTextAlignment(Qt::AlignCenter);
-            tableWidget->setItem(i + 1, 0, indexItem); // Первый столбец для индексов
+            tableWidget->setItem(i + 1, 0, indexItem);
 
-            // Установка данных
+
             for (int j = 0; j < data[i].size(); ++j) {
                 auto* item = new QTableWidgetItem(data[i][j]);
                 if (j == sortColumnIndex) {
                     item->setBackground(QBrush(Qt::darkMagenta));
                     item->setForeground(QBrush(Qt::white));
                 }
-                tableWidget->setItem(i + 1, j + 1, item); // Смещение на одну колонку вправо
+                tableWidget->setItem(i + 1, j + 1, item);
             }
         }
     }

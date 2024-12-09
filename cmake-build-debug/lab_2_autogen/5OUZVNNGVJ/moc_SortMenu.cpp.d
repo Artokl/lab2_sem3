@@ -336,6 +336,7 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_SortMe
   C:/msys64/mingw64/include/qt6/QtCore/qhashfunctions.h \
   C:/msys64/mingw64/include/qt6/QtCore/qiodevice.h \
   C:/msys64/mingw64/include/qt6/QtCore/qiodevicebase.h \
+  C:/msys64/mingw64/include/qt6/QtCore/qitemselectionmodel.h \
   C:/msys64/mingw64/include/qt6/QtCore/qiterable.h \
   C:/msys64/mingw64/include/qt6/QtCore/qiterator.h \
   C:/msys64/mingw64/include/qt6/QtCore/qlatin1stringview.h \
@@ -415,6 +416,7 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_SortMe
   C:/msys64/mingw64/include/qt6/QtCore/qversiontagging.h \
   C:/msys64/mingw64/include/qt6/QtCore/qxptype_traits.h \
   C:/msys64/mingw64/include/qt6/QtCore/qyieldcpu.h \
+  C:/msys64/mingw64/include/qt6/QtGui/QBrush \
   C:/msys64/mingw64/include/qt6/QtGui/qaction.h \
   C:/msys64/mingw64/include/qt6/QtGui/qbitmap.h \
   C:/msys64/mingw64/include/qt6/QtGui/qbrush.h \
@@ -450,14 +452,18 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_SortMe
   C:/msys64/mingw64/include/qt6/QtWidgets/QComboBox \
   C:/msys64/mingw64/include/qt6/QtWidgets/QFileDialog \
   C:/msys64/mingw64/include/qt6/QtWidgets/QHBoxLayout \
+  C:/msys64/mingw64/include/qt6/QtWidgets/QHeaderView \
   C:/msys64/mingw64/include/qt6/QtWidgets/QLabel \
   C:/msys64/mingw64/include/qt6/QtWidgets/QLineEdit \
   C:/msys64/mingw64/include/qt6/QtWidgets/QMainWindow \
   C:/msys64/mingw64/include/qt6/QtWidgets/QProgressBar \
   C:/msys64/mingw64/include/qt6/QtWidgets/QPushButton \
+  C:/msys64/mingw64/include/qt6/QtWidgets/QTableWidget \
   C:/msys64/mingw64/include/qt6/QtWidgets/QVBoxLayout \
   C:/msys64/mingw64/include/qt6/QtWidgets/qabstractbutton.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qabstractitemdelegate.h \
+  C:/msys64/mingw64/include/qt6/QtWidgets/qabstractitemview.h \
+  C:/msys64/mingw64/include/qt6/QtWidgets/qabstractscrollarea.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qabstractslider.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qabstractspinbox.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qboxlayout.h \
@@ -466,6 +472,7 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_SortMe
   C:/msys64/mingw64/include/qt6/QtWidgets/qfiledialog.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qframe.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qgridlayout.h \
+  C:/msys64/mingw64/include/qt6/QtWidgets/qheaderview.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qlabel.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qlayout.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qlayoutitem.h \
@@ -479,6 +486,8 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_SortMe
   C:/msys64/mingw64/include/qt6/QtWidgets/qstyle.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qstyleoption.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qtabbar.h \
+  C:/msys64/mingw64/include/qt6/QtWidgets/qtableview.h \
+  C:/msys64/mingw64/include/qt6/QtWidgets/qtablewidget.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qtabwidget.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qtwidgets-config.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qtwidgetsexports.h \
@@ -489,6 +498,7 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_SortMe
   D:/programming/3_sem/lab_2/Person.h \
   D:/programming/3_sem/lab_2/PersonComparators.h \
   D:/programming/3_sem/lab_2/Sequence.h \
+  D:/programming/3_sem/lab_2/Ui/SortedDataViewer.h \
   D:/programming/3_sem/lab_2/binaryInsertionSort.h \
   D:/programming/3_sem/lab_2/iSorter.h \
   D:/programming/3_sem/lab_2/isorter.h \

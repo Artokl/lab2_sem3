@@ -454,6 +454,7 @@ lab_2_autogen/timestamp: \
   C:/msys64/mingw64/include/qt6/QtCore/qversiontagging.h \
   C:/msys64/mingw64/include/qt6/QtCore/qxptype_traits.h \
   C:/msys64/mingw64/include/qt6/QtCore/qyieldcpu.h \
+  C:/msys64/mingw64/include/qt6/QtGui/QBrush \
   C:/msys64/mingw64/include/qt6/QtGui/qaction.h \
   C:/msys64/mingw64/include/qt6/QtGui/qbitmap.h \
   C:/msys64/mingw64/include/qt6/QtGui/qbrush.h \
@@ -494,12 +495,14 @@ lab_2_autogen/timestamp: \
   C:/msys64/mingw64/include/qt6/QtWidgets/QFileDialog \
   C:/msys64/mingw64/include/qt6/QtWidgets/QGroupBox \
   C:/msys64/mingw64/include/qt6/QtWidgets/QHBoxLayout \
+  C:/msys64/mingw64/include/qt6/QtWidgets/QHeaderView \
   C:/msys64/mingw64/include/qt6/QtWidgets/QLabel \
   C:/msys64/mingw64/include/qt6/QtWidgets/QLineEdit \
   C:/msys64/mingw64/include/qt6/QtWidgets/QListWidget \
   C:/msys64/mingw64/include/qt6/QtWidgets/QMainWindow \
   C:/msys64/mingw64/include/qt6/QtWidgets/QProgressBar \
   C:/msys64/mingw64/include/qt6/QtWidgets/QPushButton \
+  C:/msys64/mingw64/include/qt6/QtWidgets/QTableWidget \
   C:/msys64/mingw64/include/qt6/QtWidgets/QVBoxLayout \
   C:/msys64/mingw64/include/qt6/QtWidgets/qabstractbutton.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qabstractitemdelegate.h \
@@ -515,6 +518,7 @@ lab_2_autogen/timestamp: \
   C:/msys64/mingw64/include/qt6/QtWidgets/qframe.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qgridlayout.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qgroupbox.h \
+  C:/msys64/mingw64/include/qt6/QtWidgets/qheaderview.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qlabel.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qlayout.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qlayoutitem.h \
@@ -530,6 +534,8 @@ lab_2_autogen/timestamp: \
   C:/msys64/mingw64/include/qt6/QtWidgets/qstyle.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qstyleoption.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qtabbar.h \
+  C:/msys64/mingw64/include/qt6/QtWidgets/qtableview.h \
+  C:/msys64/mingw64/include/qt6/QtWidgets/qtablewidget.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qtabwidget.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qtwidgets-config.h \
   C:/msys64/mingw64/include/qt6/QtWidgets/qtwidgetsexports.h \
@@ -683,6 +689,7 @@ lab_2_autogen/timestamp: \
   D:/programming/3_sem/lab_2/Tests/QuickSortTests.h \
   D:/programming/3_sem/lab_2/Ui/MainMenu.h \
   D:/programming/3_sem/lab_2/Ui/SortMenu.h \
+  D:/programming/3_sem/lab_2/Ui/SortedDataViewer.h \
   D:/programming/3_sem/lab_2/Ui/TestMenu.h \
   CMakeFiles/3.28.1/CMakeCCompiler.cmake \
   CMakeFiles/3.28.1/CMakeCXXCompiler.cmake \
