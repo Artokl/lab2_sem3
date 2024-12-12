@@ -15,9 +15,9 @@ add_executable(lab_2 main.cpp
         Sequence.h
         QuickSort.h
         MergeSort.h
-        Person.h
+        Person_Resume.h
         DefaultComparators.h
-        PersonComparators.h
+        ResumeComparators.h
         Generator.h
         Tests/QuickSortTests.h
         Tests/MergeSortTests.h

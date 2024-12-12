@@ -124,6 +124,6 @@ int main(int argc, char *argv[]) {
     return QApplication::exec();
 
 
-/*    std::string fileName = "binary_input.csv";
-    GeneratePersons(fileName, 10000);*/
+/*    std::string fileName = "persons.csv";
+    GenerateResumes(fileName, 12000000);*/
 }

@@ -679,9 +679,9 @@ lab_2_autogen/timestamp: \
 	D:/programming/3_sem/lab_2/Generator.h \
 	D:/programming/3_sem/lab_2/Isorter.h \
 	D:/programming/3_sem/lab_2/MergeSort.h \
-	D:/programming/3_sem/lab_2/Person.h \
-	D:/programming/3_sem/lab_2/PersonComparators.h \
+	D:/programming/3_sem/lab_2/Person_Resume.h \
 	D:/programming/3_sem/lab_2/QuickSort.h \
+	D:/programming/3_sem/lab_2/ResumeComparators.h \
 	D:/programming/3_sem/lab_2/Sequence.h \
 	D:/programming/3_sem/lab_2/Tests/BinaryInsertionSortTests.h \
 	D:/programming/3_sem/lab_2/Tests/MergeSortTests.h \

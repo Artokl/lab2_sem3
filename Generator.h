@@ -6,7 +6,7 @@
 #include <random>
 #include <string>
 
-#include "Person.h"
+#include "Person_Resume.h"
 
 inline std::string FirstNameList[20] = {
     "Ivan", "Andrei", "Dmitri", "Alexei", "Nikolai",
@@ -22,7 +22,21 @@ inline std::string SecondNameList[20] = {
     "Karpov", "Yakovlev", "Zaitsev", "Chernov", "Kalinin"
 };
 
-inline void GeneratePersons(std::string& filename, int count) {
+inline std::string PositionList[10] = {
+    "Engineer", "Manager", "Analyst", "Developer", "Designer",
+    "Technician", "Consultant", "Scientist", "Architect", "Director"
+};
+
+inline std::string SkillsList[10] = {
+    "C++", "Python", "Java", "SQL", "Leadership",
+    "Communication", "Project Management", "Machine Learning", "Data Analysis", "UX Design"
+};
+
+inline std::string EducationList[5] = {
+    "High School", "Associate Degree", "Bachelor's Degree", "Master's Degree", "PhD"
+};
+
+inline void GenerateResumes(std::string& filename, int count) {
     std::ofstream outFile(filename, std::ios::out);
 
     if (!outFile) {
@@ -33,10 +47,16 @@ inline void GeneratePersons(std::string& filename, int count) {
     std::uniform_int_distribution yearDist(1960, 2005);
     std::uniform_real_distribution heightDist(140.0, 200.0);
     std::uniform_real_distribution weightDist(40.0, 120.0);
+    std::uniform_real_distribution salaryDist(30000.0, 400000.0);
+    std::uniform_real_distribution experienceDist(0.0, 40.0);
+    std::uniform_int_distribution certificationDist(0, 10);
     std::uniform_int_distribution firstNameDist(0, 19);
     std::uniform_int_distribution secondNameDist(0, 19);
+    std::uniform_int_distribution positionDist(0, 9);
+    std::uniform_int_distribution skillsDist(0, 9);
+    std::uniform_int_distribution educationDist(0, 4);
 
-    outFile << "FirstName,SecondName,BirthYear,Height,Weight\n";
+    outFile << "FirstName,SecondName,BirthYear,Height,Weight,DesiredPosition,Skills,Education,DesiredSalary,YearsOfExperience,CertificationsCount\n";
 
     for (int i = 0; i < count; ++i) {
         std::string firstName = FirstNameList[firstNameDist(generator)];
@@ -44,27 +64,35 @@ inline void GeneratePersons(std::string& filename, int count) {
         int birthYear = yearDist(generator);
         double height = heightDist(generator);
         double weight = weightDist(generator);
+        std::string desiredPosition = PositionList[positionDist(generator)];
+        std::string skills = SkillsList[skillsDist(generator)];
+        std::string education = EducationList[educationDist(generator)];
+        double desiredSalary = salaryDist(generator);
+        double yearsOfExperience = experienceDist(generator);
+        int certificationsCount = certificationDist(generator);
 
         outFile << firstName << "," << secondName << ","
-                << birthYear << "," << height << "," << weight << "\n";
+                << birthYear << "," << height << "," << weight << ","
+                << desiredPosition << "," << skills << "," << education << ","
+                << desiredSalary << "," << yearsOfExperience << "," << certificationsCount << "\n";
     }
 
     outFile.close();
 }
 
-inline void GettingDataFromFile(const std::string& name, ArraySequence<Person>& persons) {
+inline void GettingDataFromFile(const std::string& name, ArraySequence<Resume>& resumes) {
     std::ifstream inFile(name);
 
     if (!inFile) {
         throw std::ios_base::failure("Failed to open file for reading");
     }
 
-    Person tmp;
-    std::string firstName, lastName;
+    Resume tmp;
+    std::string firstName, lastName, desiredPosition, skills, education;
     int birthYear;
-    double height, weight;
+    double height, weight, desiredSalary, yearsOfExperience, certificationsCount;
 
-    inFile.ignore(63, '\n');
+    inFile.ignore(1024, '\n');
     while (true) {
         std::getline(inFile, firstName, ',');
         std::getline(inFile, lastName, ',');
@@ -73,6 +101,15 @@ inline void GettingDataFromFile(const std::string& name, ArraySequence<Person>& 
         inFile >> height;
         inFile.ignore(1);
         inFile >> weight;
+        inFile.ignore(1);
+        std::getline(inFile, desiredPosition, ',');
+        std::getline(inFile, skills, ',');
+        std::getline(inFile, education, ',');
+        inFile >> desiredSalary;
+        inFile.ignore(1);
+        inFile >> yearsOfExperience;
+        inFile.ignore(1);
+        inFile >> certificationsCount;
         inFile.ignore(1);
 
         if (!inFile) {
@@ -84,26 +121,39 @@ inline void GettingDataFromFile(const std::string& name, ArraySequence<Person>& 
         tmp.setBirthYear(birthYear);
         tmp.setHeight(height);
         tmp.setWeight(weight);
+        tmp.setDesiredPosition(desiredPosition);
+        tmp.setSkills(skills);
+        tmp.setEducation(education);
+        tmp.setDesiredSalary(desiredSalary);
+        tmp.setYearsOfExperience(yearsOfExperience);
+        tmp.setCertificationsCount(certificationsCount);
 
-        persons.Append(tmp);
+        resumes.Append(tmp);
     }
 }
 
-inline void PuttingDataToFile(const std::string& name, const ArraySequence<Person>& persons) {
+inline void PuttingDataToFile(const std::string& name, const ArraySequence<Resume>& resumes) {
     std::ofstream outFile(name, std::ios::out);
 
     if (!outFile) {
         throw std::ios_base::failure("Failed to open file for writing");
     }
 
-    outFile << "FirstName,LastName,BirthYear,Height,Weight\n";
-    for (int i = 0; i < persons.GetLength(); ++i) {
-        const Person& person = persons[i];
-        outFile << person.getFirstName() << ","
-                << person.getLastName() << ","
-                << 2024 - person.getAge() << ","
-                << person.getHeight() << ","
-                << person.getWeight() << "\n";
+    outFile << "FirstName,LastName,BirthYear,Height,Weight,DesiredPosition,Skills,Education,DesiredSalary,YearsOfExperience,CertificationsCount\n";
+    for (int i = 0; i < resumes.GetLength(); ++i) {
+        const Resume& resume = resumes[i];
+        outFile << resume.getFirstName() << ","
+                << resume.getLastName() << ","
+                << 2024 - resume.getAge() << ","
+                << resume.getHeight() << ","
+                << resume.getWeight() << ","
+                << resume.getDesiredPosition() << ","
+                << resume.getSkills() << ","
+                << resume.getEducation() << ","
+                << resume.getDesiredSalary() << ","
+                << resume.getYearsOfExperience() << ","
+                << resume.getCertificationsCount() << "\n";
     }
 }
+
 #endif //GENERATOR_H

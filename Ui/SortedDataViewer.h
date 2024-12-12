@@ -20,8 +20,9 @@ public:
         auto* layout = new QVBoxLayout(centralWidget);
 
         tableWidget = new QTableWidget(this);
-        tableWidget->setColumnCount(6);
-        tableWidget->setHorizontalHeaderLabels({"", "Имя", "Фамилия", "Год рождения", "Рост", "Вес"});
+        tableWidget->setColumnCount(12);
+        tableWidget->setHorizontalHeaderLabels({"", "Имя", "Фамилия", "Год рождения", "Рост",
+            "Вес", "Желаемая позиция", "Навыки", "Образование", "Зарплата", "Опыт работы", "Количество сертификатов"});
         tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
         tableWidget->verticalHeader()->setVisible(false);
@@ -34,7 +35,8 @@ public:
     void setData(const QVector<QVector<QString>>& data, const int sortColumnIndex = -1) const {
         tableWidget->setRowCount(data.size() + 1);
 
-        const QStringList headers = {"", "Имя", "Фамилия", "Год рождения", "Рост", "Вес"};
+        const QStringList headers = {"", "Имя", "Фамилия", "Год рождения", "Рост",
+            "Вес", "Желаемая позиция", "Навыки", "Образование", "Зарплата", "Опыт работы", "Количество сертификатов"};
         for (int j = 0; j < headers.size(); ++j) {
             auto* headerItem = new QTableWidgetItem(headers[j]);
             headerItem->setFlags(Qt::ItemIsEnabled);

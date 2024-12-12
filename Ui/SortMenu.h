@@ -12,13 +12,14 @@
 #include <QProgressBar>
 #include <QCoreApplication>
 #include <QElapsedTimer>
+#include <QApplication>
 #include <fstream>
 
 #include "SortedDataViewer.h"
-#include "../PersonComparators.h"
-#include "../quickSort.h"
-#include "../binaryInsertionSort.h"
-#include "../mergeSort.h"
+#include "../ResumeComparators.h"
+#include "../QuickSort.h"
+#include "../BinaryInsertionSort.h"
+#include "../MergeSort.h"
 #include "../ArraySequence.h"
 
 class SortMenu final : public QMainWindow {
@@ -43,7 +44,7 @@ public:
         auto* sortParameterLayout = new QVBoxLayout();
         sortParameterLayout->addWidget(new QLabel("Параметр сортировки:", this));
         sortParameterComboBox = new QComboBox(this);
-        sortParameterComboBox->addItems({"Возраст", "Рост", "Вес"});
+        sortParameterComboBox->addItems({"Возраст", "Рост", "Вес", "Зарплата", "Опыт работы", "Количество сертификатов"});
         sortParameterLayout->addWidget(sortParameterComboBox);
         layout->addLayout(sortParameterLayout);
 
@@ -113,23 +114,30 @@ private slots:
         QElapsedTimer timer;
         timer.start();
 
-        ArraySequence<Person> persons;
+        ArraySequence<Resume> resumes;
         std::ifstream inputFile(inputFilePath.toStdString());
         if (!inputFile.is_open()) {
             resultLabel->setText("Ошибка: Не удалось открыть файл.");
             return;
         }
         std::string line;
-        std::getline(inputFile, line);
+        std::getline(inputFile, line);  // Skip header line
         while (std::getline(inputFile, line)) {
             std::istringstream stream(line);
-            std::string firstName, lastName, birthYear, height, weight;
+            std::string firstName, lastName, birthYear, height, weight, desiredPosition, skills, education, desiredSalary, yearsOfExperience, certificationsCount;
             std::getline(stream, firstName, ',');
             std::getline(stream, lastName, ',');
             std::getline(stream, birthYear, ',');
             std::getline(stream, height, ',');
             std::getline(stream, weight, ',');
-            persons.Append(Person(firstName, lastName, std::stoi(birthYear), std::stod(height), std::stod(weight)));
+            std::getline(stream, desiredPosition, ',');
+            std::getline(stream, skills, ',');
+            std::getline(stream, education, ',');
+            std::getline(stream, desiredSalary, ',');
+            std::getline(stream, yearsOfExperience, ',');
+            std::getline(stream, certificationsCount, ',');
+            resumes.Append(Resume(firstName, lastName, std::stoi(birthYear), std::stod(height), std::stod(weight),
+                                  desiredPosition, skills, education, std::stod(desiredSalary), std::stod(yearsOfExperience), std::stod(certificationsCount)));
         }
         inputFile.close();
 
@@ -137,16 +145,16 @@ private slots:
         statusLabel->setText("Сортировка...");
         QCoreApplication::processEvents();
 
-        int (*comparator)(const Person&, const Person&) = getComparator(sortParameter, sortOrder);
+        int (*comparator)(const Resume&, const Resume&) = getComparator(sortParameter, sortOrder);
         if (sortType == "Быстрая") {
-            QuickSorter<Person> sorter;
-            sorter.Sort(persons, comparator);
+            QuickSorter<Resume> sorter;
+            sorter.Sort(resumes, comparator);
         } else if (sortType == "Бинарная вставка") {
-            BinaryInsertionSorter<Person> sorter;
-            sorter.Sort(persons, comparator);
+            BinaryInsertionSorter<Resume> sorter;
+            sorter.Sort(resumes, comparator);
         } else if (sortType == "Слиянием") {
-            MergeSorter<Person> sorter;
-            sorter.Sort(persons, comparator);
+            MergeSorter<Resume> sorter;
+            sorter.Sort(resumes, comparator);
         } else {
             resultLabel->setText("Ошибка: Неверный тип сортировки.");
             return;
@@ -163,11 +171,12 @@ private slots:
             return;
         }
 
-        outputFile << "Имя,Фамилия,Год рождения,Рост,Вес\n";
-        for (size_t i = 0; i < persons.GetLength(); ++i) {
-            const Person& p = persons[i];
-            outputFile << p.getFirstName() << "," << p.getLastName() << "," << (2024 - p.getAge()) << "," << p.getHeight()
-            << "," << p.getWeight() << "\n";
+        outputFile << "Имя,Фамилия,Год рождения,Рост,Вес,Желаемая позиция,Навыки,Образование,Желаемая зарплата,Опыт работы,Количество сертификатов\n";
+        for (size_t i = 0; i < resumes.GetLength(); ++i) {
+            const Resume& r = resumes[i];
+            outputFile << r.getFirstName() << "," << r.getLastName() << "," << (2024 - r.getAge()) << "," << r.getHeight()
+            << "," << r.getWeight() << "," << r.getDesiredPosition() << "," << r.getSkills() << "," << r.getEducation()
+            << "," << r.getDesiredSalary() << "," << r.getYearsOfExperience() << "," << r.getCertificationsCount() << "\n";
         }
         outputFile.close();
 
@@ -182,6 +191,7 @@ private slots:
                                     "Время выполнения: %3 секунд.")
                                 .arg(inputFilePath, outputFilePath)
                                 .arg(QString::number(elapsedTime, 'f', 2)));
+
         int sortColumnIndex = -1;
         if (sortParameter == "Возраст") {
             sortColumnIndex = 2;
@@ -189,35 +199,64 @@ private slots:
             sortColumnIndex = 3;
         } else if (sortParameter == "Вес") {
             sortColumnIndex = 4;
+        } else if (sortParameter == "Зарплата") {
+            sortColumnIndex = 8;
+        } else if (sortParameter == "Опыт работы") {
+            sortColumnIndex = 9;
+        } else if (sortParameter == "Количество сертификатов") {
+            sortColumnIndex = 10;
         }
 
         QVector<QVector<QString>> sortedData;
-        for (size_t i = 0; i < persons.GetLength(); ++i) {
-            const Person& p = persons[i];
+        for (size_t i = 0; i < resumes.GetLength(); ++i) {
+            const Resume& p = resumes[i];
             sortedData.append({
                 QString::fromStdString(p.getFirstName()),
                 QString::fromStdString(p.getLastName()),
                 QString::number(2024 - p.getAge()),
                 QString::number(p.getHeight(), 'f', 2),
-                QString::number(p.getWeight(), 'f', 2)
+                QString::number(p.getWeight(), 'f', 2),
+                QString::fromStdString(p.getDesiredPosition()),
+                QString::fromStdString(p.getSkills()),
+                QString::fromStdString(p.getEducation()),
+                QString::number(p.getDesiredSalary(), 'f', 2),
+                QString::number(p.getYearsOfExperience(), 'f', 2),
+                QString::number(p.getCertificationsCount())
             });
         }
 
         auto* viewer = new SortedDataViewer(this);
         QRect mainWindowGeometry = this->frameGeometry();
-        int x = mainWindowGeometry.right();
-        int y = mainWindowGeometry.top();
+        QRect screenGeometry = QApplication::desktop()->availableGeometry(); // Get available screen geometry
 
-        int newWidth = mainWindowGeometry.width() / 2;
+        int newWidth = mainWindowGeometry.width() * 2;
         int newHeight = mainWindowGeometry.height();
-        viewer->resize(newWidth, newHeight);
 
+        // Calculate x, ensuring it stays within screen bounds
+        int x = mainWindowGeometry.left() + (mainWindowGeometry.width() - newWidth) / 2;
+        x = std::max(screenGeometry.left(), std::min(x, screenGeometry.right() - newWidth));
+
+
+        // Calculate y, ensuring it stays within screen bounds
+        int y = mainWindowGeometry.bottom();
+        y = std::min(y, screenGeometry.bottom() - newHeight);
+
+
+        viewer->resize(newWidth, newHeight);
         viewer->move(x, y);
         viewer->setData(sortedData, sortColumnIndex);
         viewer->show();
     }
 private:
-    static int (*getComparator(const QString& sortParameter, const QString& sortOrder))(const Person&, const Person&) {
+    QComboBox* sortTypeComboBox;
+    QComboBox* sortParameterComboBox;
+    QComboBox* sortOrderComboBox;
+    QLineEdit* filePathLineEdit;
+    QProgressBar* progressBar;
+    QLabel* statusLabel;
+    QLabel* resultLabel;
+
+    static int (*getComparator(const QString& sortParameter, const QString& sortOrder))(const Resume&, const Resume&) {
         if (sortParameter == "Возраст") {
             return sortOrder == "По возрастанию" ? AscendingComparatorByAge : DescendingComparatorByAge;
         }
@@ -227,15 +266,17 @@ private:
         if (sortParameter == "Вес") {
             return sortOrder == "По возрастанию" ? AscendingComparatorByWeight : DescendingComparatorByWeight;
         }
+        if (sortParameter == "Зарплата") {
+            return sortOrder == "По возрастанию" ? AscendingComparatorByDesiredSalary : DescendingComparatorByDesiredSalary;
+        }
+        if (sortParameter == "Опыт работы") {
+            return sortOrder == "По возрастанию" ? AscendingComparatorByYearsOfExperience : DescendingComparatorByYearsOfExperience;
+        }
+        if (sortParameter == "Количество сертификатов") {
+            return sortOrder == "По возрастанию" ? AscendingComparatorByCertificationsCount : DescendingComparatorByCertificationsCount;
+        }
         throw std::invalid_argument("Неверный параметр сортировки");
     }
-    QComboBox *sortTypeComboBox;
-    QComboBox *sortParameterComboBox;
-    QComboBox *sortOrderComboBox;
-    QLineEdit *filePathLineEdit;
-    QProgressBar *progressBar;
-    QLabel *statusLabel;
-    QLabel *resultLabel;
 };
 
-#endif //SORTMENU_H
+#endif // SORTMENU_H

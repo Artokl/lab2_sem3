@@ -111,7 +111,13 @@ private:
             {"Сортировка по убыванию веса", []() { return QuickSortDescWeightTest("input.csv"); }},
             {"Сортировка по возрастанию веса", []() { return QuickSortAscWeightTest("input.csv"); }},
             {"Сортировка по убыванию роста", []() { return QuickSortDescHeightTest("input.csv"); }},
-            {"Сортировка по возрастанию роста", []() { return QuickSortAscHeightTest("input.csv"); }}
+            {"Сортировка по возрастанию роста", []() { return QuickSortAscHeightTest("input.csv"); }},
+            {"Сортировка по убыванию зарплаты", []() { return QuickSortDescSalaryTest("input.csv"); }},
+            {"Сортировка по возрастанию зарплаты", []() { return QuickSortAscSalaryTest("input.csv"); }},
+            {"Сортировка по убыванию опыта работы", []() { return QuickSortDescExperienceTest("input.csv"); }},
+            {"Сортировка по возрастанию опыта работы", []() { return QuickSortAscExperienceTest("input.csv"); }},
+            {"Сортировка по убыванию количества сертификатов", []() { return QuickSortDescCertificationsTest("input.csv"); }},
+            {"Сортировка по возрастанию количества сертификатов", []() { return QuickSortAscCertificationsTest("input.csv"); }}
         };
 
         testGroups["Слиянием"] = {
@@ -120,7 +126,13 @@ private:
             {"Сортировка по убыванию веса", []() { return MergeSortDescWeightTest("input.csv"); }},
             {"Сортировка по возрастанию веса", []() { return MergeSortAscWeightTest("input.csv"); }},
             {"Сортировка по убыванию роста", []() { return MergeSortDescHeightTest("input.csv"); }},
-            {"Сортировка по возрастанию роста", []() { return MergeSortAscHeightTest("input.csv"); }}
+            {"Сортировка по возрастанию роста", []() { return MergeSortAscHeightTest("input.csv"); }},
+            {"Сортировка по убыванию зарплаты", []() { return MergeSortDescSalaryTest("input.csv"); }},
+            {"Сортировка по возрастанию зарплаты", []() { return MergeSortAscSalaryTest("input.csv"); }},
+            {"Сортировка по убыванию опыта работы", []() { return MergeSortDescExperienceTest("input.csv"); }},
+            {"Сортировка по возрастанию опыта работы", []() { return MergeSortAscExperienceTest("input.csv"); }},
+            {"Сортировка по убыванию количества сертификатов", []() { return MergeSortDescCertificationsTest("input.csv"); }},
+            {"Сортировка по возрастанию количества сертификатов", []() { return MergeSortAscCertificationsTest("input.csv"); }}
         };
 
         testGroups["Бинарная вставка"] = {
@@ -129,7 +141,13 @@ private:
             {"Сортировка по убыванию веса", []() { return BinaryInsertionSortDescWeightTest("binaryinsertion_input.csv"); }},
             {"Сортировка по возрастанию веса", []() { return BinaryInsertionSortAscWeightTest("binaryinsertion_input.csv"); }},
             {"Сортировка по убыванию роста", []() { return BinaryInsertionSortDescHeightTest("binaryinsertion_input.csv"); }},
-            {"Сортировка по возрастанию роста", []() { return BinaryInsertionSortAscHeightTest("binaryinsertion_input.csv"); }}
+            {"Сортировка по возрастанию роста", []() { return BinaryInsertionSortAscHeightTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по убыванию зарплаты", []() { return BinaryInsertionSortDescSalaryTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по возрастанию зарплаты", []() { return BinaryInsertionSortAscSalaryTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по убыванию опыта работы", []() { return BinaryInsertionSortDescExperienceTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по возрастанию опыта работы", []() { return BinaryInsertionSortAscExperienceTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по убыванию количества сертификатов", []() { return BinaryInsertionSortDescCertificationsTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по возрастанию количества сертификатов", []() { return BinaryInsertionSortAscCertificationsTest("binaryinsertion_input.csv"); }}
         };
     }
 };
