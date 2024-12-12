@@ -13,6 +13,8 @@
 #include <QCoreApplication>
 #include <QElapsedTimer>
 #include <QApplication>
+#include <QGuiApplication>
+#include <QScreen>
 #include <fstream>
 
 #include "SortedDataViewer.h"
@@ -227,20 +229,12 @@ private slots:
 
         auto* viewer = new SortedDataViewer(this);
         QRect mainWindowGeometry = this->frameGeometry();
-        QRect screenGeometry = QApplication::desktop()->availableGeometry(); // Get available screen geometry
+
+        int x = mainWindowGeometry.left() - mainWindowGeometry.width() / 2;
+        int y = mainWindowGeometry.bottom();
 
         int newWidth = mainWindowGeometry.width() * 2;
         int newHeight = mainWindowGeometry.height();
-
-        // Calculate x, ensuring it stays within screen bounds
-        int x = mainWindowGeometry.left() + (mainWindowGeometry.width() - newWidth) / 2;
-        x = std::max(screenGeometry.left(), std::min(x, screenGeometry.right() - newWidth));
-
-
-        // Calculate y, ensuring it stays within screen bounds
-        int y = mainWindowGeometry.bottom();
-        y = std::min(y, screenGeometry.bottom() - newHeight);
-
 
         viewer->resize(newWidth, newHeight);
         viewer->move(x, y);

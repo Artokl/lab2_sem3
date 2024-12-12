@@ -275,7 +275,12 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_MainMe
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
   C:/msys64/mingw64/include/qt6/QtCore/QCoreApplication \
   C:/msys64/mingw64/include/qt6/QtCore/QElapsedTimer \
+  C:/msys64/mingw64/include/qt6/QtCore/QList \
   C:/msys64/mingw64/include/qt6/QtCore/QMap \
+  C:/msys64/mingw64/include/qt6/QtCore/QObject \
+  C:/msys64/mingw64/include/qt6/QtCore/QRect \
+  C:/msys64/mingw64/include/qt6/QtCore/QSize \
+  C:/msys64/mingw64/include/qt6/QtCore/QSizeF \
   C:/msys64/mingw64/include/qt6/QtCore/q20functional.h \
   C:/msys64/mingw64/include/qt6/QtCore/q20iterator.h \
   C:/msys64/mingw64/include/qt6/QtCore/q20memory.h \
@@ -418,6 +423,9 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_MainMe
   C:/msys64/mingw64/include/qt6/QtCore/qxptype_traits.h \
   C:/msys64/mingw64/include/qt6/QtCore/qyieldcpu.h \
   C:/msys64/mingw64/include/qt6/QtGui/QBrush \
+  C:/msys64/mingw64/include/qt6/QtGui/QGuiApplication \
+  C:/msys64/mingw64/include/qt6/QtGui/QScreen \
+  C:/msys64/mingw64/include/qt6/QtGui/QTransform \
   C:/msys64/mingw64/include/qt6/QtGui/qaction.h \
   C:/msys64/mingw64/include/qt6/QtGui/qbitmap.h \
   C:/msys64/mingw64/include/qt6/QtGui/qbrush.h \
@@ -442,6 +450,8 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_MainMe
   C:/msys64/mingw64/include/qt6/QtGui/qregion.h \
   C:/msys64/mingw64/include/qt6/QtGui/qrgb.h \
   C:/msys64/mingw64/include/qt6/QtGui/qrgba64.h \
+  C:/msys64/mingw64/include/qt6/QtGui/qscreen.h \
+  C:/msys64/mingw64/include/qt6/QtGui/qscreen_platform.h \
   C:/msys64/mingw64/include/qt6/QtGui/qtextcursor.h \
   C:/msys64/mingw64/include/qt6/QtGui/qtextdocument.h \
   C:/msys64/mingw64/include/qt6/QtGui/qtextformat.h \
@@ -509,9 +519,9 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_MainMe
   D:/programming/3_sem/lab_2/DefaultComparators.h \
   D:/programming/3_sem/lab_2/Generator.h \
   D:/programming/3_sem/lab_2/MergeSort.h \
-  D:/programming/3_sem/lab_2/Person.h \
-  D:/programming/3_sem/lab_2/PersonComparators.h \
+  D:/programming/3_sem/lab_2/Person_Resume.h \
   D:/programming/3_sem/lab_2/QuickSort.h \
+  D:/programming/3_sem/lab_2/ResumeComparators.h \
   D:/programming/3_sem/lab_2/Sequence.h \
   D:/programming/3_sem/lab_2/Tests/BinaryInsertionSortTests.h \
   D:/programming/3_sem/lab_2/Tests/MergeSortTests.h \
@@ -519,8 +529,5 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_MainMe
   D:/programming/3_sem/lab_2/Ui/SortMenu.h \
   D:/programming/3_sem/lab_2/Ui/SortedDataViewer.h \
   D:/programming/3_sem/lab_2/Ui/TestMenu.h \
-  D:/programming/3_sem/lab_2/binaryInsertionSort.h \
   D:/programming/3_sem/lab_2/iSorter.h \
-  D:/programming/3_sem/lab_2/isorter.h \
-  D:/programming/3_sem/lab_2/mergeSort.h \
-  D:/programming/3_sem/lab_2/quickSort.h
+  D:/programming/3_sem/lab_2/isorter.h
