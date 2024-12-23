@@ -465,10 +465,10 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_TestMe
   D:/programming/3_sem/lab_2/DefaultComparators.h \
   D:/programming/3_sem/lab_2/Generator.h \
   D:/programming/3_sem/lab_2/MergeSort.h \
-  D:/programming/3_sem/lab_2/Person_Resume.h \
+  D:/programming/3_sem/lab_2/Person_Student.h \
   D:/programming/3_sem/lab_2/QuickSort.h \
-  D:/programming/3_sem/lab_2/ResumeComparators.h \
   D:/programming/3_sem/lab_2/Sequence.h \
+  D:/programming/3_sem/lab_2/StudentComparators.h \
   D:/programming/3_sem/lab_2/Tests/BinaryInsertionSortTests.h \
   D:/programming/3_sem/lab_2/Tests/MergeSortTests.h \
   D:/programming/3_sem/lab_2/Tests/QuickSortTests.h \

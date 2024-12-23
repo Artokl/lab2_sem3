@@ -256,9 +256,9 @@
 			null
 		],
 		[
-			"D:/programming/3_sem/lab_2/Person_Resume.h",
+			"D:/programming/3_sem/lab_2/Person_Student.h",
 			"MU",
-			"EWIEGA46WW/moc_Person_Resume.cpp",
+			"EWIEGA46WW/moc_Person_Student.cpp",
 			null
 		],
 		[
@@ -268,15 +268,15 @@
 			null
 		],
 		[
-			"D:/programming/3_sem/lab_2/ResumeComparators.h",
-			"MU",
-			"EWIEGA46WW/moc_ResumeComparators.cpp",
-			null
-		],
-		[
 			"D:/programming/3_sem/lab_2/Sequence.h",
 			"MU",
 			"EWIEGA46WW/moc_Sequence.cpp",
+			null
+		],
+		[
+			"D:/programming/3_sem/lab_2/StudentComparators.h",
+			"MU",
+			"EWIEGA46WW/moc_StudentComparators.cpp",
 			null
 		],
 		[

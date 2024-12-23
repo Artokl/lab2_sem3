@@ -4,17 +4,17 @@
 #include <string>
 #include "../Generator.h"
 #include "../MergeSort.h"
-#include "../Person_Resume.h"
+#include "../Person_Student.h"
 #include "../ArraySequence.h"
-#include "../ResumeComparators.h"
+#include "../StudentComparators.h"
 
 inline bool MergeSortAscAgeTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, DescendingComparatorByAge);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getAge() > resumes[i + 1].getAge()) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, AscendingComparatorByAge);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getAge() < students[i + 1].getAge()) {
             return false;
         }
     }
@@ -22,90 +22,90 @@ inline bool MergeSortAscAgeTest(const std::string& path) {
 }
 
 inline bool MergeSortDescAgeTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, AscendingComparatorByAge);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getAge() < resumes[i + 1].getAge()) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, DescendingComparatorByAge);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getAge() > students[i + 1].getAge()) {
             return false;
         }
     }
     return true;
 }
 
-inline bool MergeSortAscSalaryTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, AscendingComparatorByDesiredSalary);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getDesiredSalary() > resumes[i + 1].getDesiredSalary()) {
+inline bool MergeSortAscGPATest(const std::string& path) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, AscendingComparatorByGPA);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getGPA() > students[i + 1].getGPA()) {
             return false;
         }
     }
     return true;
 }
 
-inline bool MergeSortDescSalaryTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, DescendingComparatorByDesiredSalary);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getDesiredSalary() < resumes[i + 1].getDesiredSalary()) {
+inline bool MergeSortDescGPATest(const std::string& path) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, DescendingComparatorByGPA);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getGPA() < students[i + 1].getGPA()) {
             return false;
         }
     }
     return true;
 }
 
-inline bool MergeSortAscExperienceTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, AscendingComparatorByYearsOfExperience);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getYearsOfExperience() > resumes[i + 1].getYearsOfExperience()) {
+inline bool MergeSortAscYearsOfStudyTest(const std::string& path) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, AscendingComparatorByYearsOfStudy);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getYearsOfStudy() > students[i + 1].getYearsOfStudy()) {
             return false;
         }
     }
     return true;
 }
 
-inline bool MergeSortDescExperienceTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, DescendingComparatorByYearsOfExperience);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getYearsOfExperience() < resumes[i + 1].getYearsOfExperience()) {
+inline bool MergeSortDescYearsOfStudyTest(const std::string& path) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, DescendingComparatorByYearsOfStudy);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getYearsOfStudy() < students[i + 1].getYearsOfStudy()) {
             return false;
         }
     }
     return true;
 }
 
-inline bool MergeSortAscCertificationsTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, AscendingComparatorByCertificationsCount);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getCertificationsCount() > resumes[i + 1].getCertificationsCount()) {
+inline bool MergeSortAscCompletedCreditsTest(const std::string& path) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, AscendingComparatorByCompletedCredits);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getCompletedCredits() > students[i + 1].getCompletedCredits()) {
             return false;
         }
     }
     return true;
 }
 
-inline bool MergeSortDescCertificationsTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, DescendingComparatorByCertificationsCount);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getCertificationsCount() < resumes[i + 1].getCertificationsCount()) {
+inline bool MergeSortDescCompletedCreditsTest(const std::string& path) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, DescendingComparatorByCompletedCredits);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getCompletedCredits() < students[i + 1].getCompletedCredits()) {
             return false;
         }
     }
@@ -113,12 +113,12 @@ inline bool MergeSortDescCertificationsTest(const std::string& path) {
 }
 
 inline bool MergeSortAscHeightTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, AscendingComparatorByHeight);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getHeight() > resumes[i + 1].getHeight()) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, AscendingComparatorByHeight);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getHeight() > students[i + 1].getHeight()) {
             return false;
         }
     }
@@ -126,12 +126,12 @@ inline bool MergeSortAscHeightTest(const std::string& path) {
 }
 
 inline bool MergeSortDescHeightTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, DescendingComparatorByHeight);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getHeight() < resumes[i + 1].getHeight()) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, DescendingComparatorByHeight);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getHeight() < students[i + 1].getHeight()) {
             return false;
         }
     }
@@ -139,12 +139,12 @@ inline bool MergeSortDescHeightTest(const std::string& path) {
 }
 
 inline bool MergeSortAscWeightTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, AscendingComparatorByWeight);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getWeight() > resumes[i + 1].getWeight()) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, AscendingComparatorByWeight);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getWeight() > students[i + 1].getWeight()) {
             return false;
         }
     }
@@ -152,16 +152,17 @@ inline bool MergeSortAscWeightTest(const std::string& path) {
 }
 
 inline bool MergeSortDescWeightTest(const std::string& path) {
-    ArraySequence<Resume> resumes;
-    GettingDataFromFile(path, resumes);
-    const MergeSorter<Resume> sorter;
-    sorter.Sort(resumes, DescendingComparatorByWeight);
-    for (int i = 0; i < resumes.GetLength() - 1; ++i) {
-        if (resumes[i].getWeight() < resumes[i + 1].getWeight()) {
+    ArraySequence<Student> students;
+    GettingDataFromFile(path, students);
+    const MergeSorter<Student> sorter;
+    sorter.Sort(students, DescendingComparatorByWeight);
+    for (int i = 0; i < students.GetLength() - 1; ++i) {
+        if (students[i].getWeight() < students[i + 1].getWeight()) {
             return false;
         }
     }
     return true;
 }
+
 
 #endif //MERGESORTTESTS_H

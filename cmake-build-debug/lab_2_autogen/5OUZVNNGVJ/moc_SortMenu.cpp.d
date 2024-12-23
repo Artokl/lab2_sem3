@@ -512,10 +512,10 @@ D:/programming/3_sem/lab_2/cmake-build-debug/lab_2_autogen/5OUZVNNGVJ/moc_SortMe
   D:/programming/3_sem/lab_2/BinaryInsertionSort.h \
   D:/programming/3_sem/lab_2/DefaultComparators.h \
   D:/programming/3_sem/lab_2/MergeSort.h \
-  D:/programming/3_sem/lab_2/Person_Resume.h \
+  D:/programming/3_sem/lab_2/Person_Student.h \
   D:/programming/3_sem/lab_2/QuickSort.h \
-  D:/programming/3_sem/lab_2/ResumeComparators.h \
   D:/programming/3_sem/lab_2/Sequence.h \
+  D:/programming/3_sem/lab_2/StudentComparators.h \
   D:/programming/3_sem/lab_2/Ui/SortedDataViewer.h \
   D:/programming/3_sem/lab_2/iSorter.h \
   D:/programming/3_sem/lab_2/isorter.h

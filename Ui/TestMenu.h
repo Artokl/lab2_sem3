@@ -112,12 +112,12 @@ private:
             {"Сортировка по возрастанию веса", []() { return QuickSortAscWeightTest("input.csv"); }},
             {"Сортировка по убыванию роста", []() { return QuickSortDescHeightTest("input.csv"); }},
             {"Сортировка по возрастанию роста", []() { return QuickSortAscHeightTest("input.csv"); }},
-            {"Сортировка по убыванию зарплаты", []() { return QuickSortDescSalaryTest("input.csv"); }},
-            {"Сортировка по возрастанию зарплаты", []() { return QuickSortAscSalaryTest("input.csv"); }},
-            {"Сортировка по убыванию опыта работы", []() { return QuickSortDescExperienceTest("input.csv"); }},
-            {"Сортировка по возрастанию опыта работы", []() { return QuickSortAscExperienceTest("input.csv"); }},
-            {"Сортировка по убыванию количества сертификатов", []() { return QuickSortDescCertificationsTest("input.csv"); }},
-            {"Сортировка по возрастанию количества сертификатов", []() { return QuickSortAscCertificationsTest("input.csv"); }}
+            {"Сортировка по убыванию завершённых кредитов", []() { return QuickSortDescCompletedCreditsTest("input.csv"); }},
+            {"Сортировка по возрастанию завершённых кредитов", []() { return QuickSortAscCompletedCreditsTest("input.csv"); }},
+            {"Сортировка по убыванию GPA", []() { return QuickSortDescGPATest("input.csv"); }},
+            {"Сортировка по возрастанию GPA", []() { return QuickSortAscGPATest("input.csv"); }},
+            {"Сортировка по убыванию годов обучения", []() { return QuickSortDescYearsOfStudyTest("input.csv"); }},
+            {"Сортировка по возрастанию годов обучения", []() { return QuickSortAscYearsOfStudyTest("input.csv"); }}
         };
 
         testGroups["Слиянием"] = {
@@ -127,12 +127,12 @@ private:
             {"Сортировка по возрастанию веса", []() { return MergeSortAscWeightTest("input.csv"); }},
             {"Сортировка по убыванию роста", []() { return MergeSortDescHeightTest("input.csv"); }},
             {"Сортировка по возрастанию роста", []() { return MergeSortAscHeightTest("input.csv"); }},
-            {"Сортировка по убыванию зарплаты", []() { return MergeSortDescSalaryTest("input.csv"); }},
-            {"Сортировка по возрастанию зарплаты", []() { return MergeSortAscSalaryTest("input.csv"); }},
-            {"Сортировка по убыванию опыта работы", []() { return MergeSortDescExperienceTest("input.csv"); }},
-            {"Сортировка по возрастанию опыта работы", []() { return MergeSortAscExperienceTest("input.csv"); }},
-            {"Сортировка по убыванию количества сертификатов", []() { return MergeSortDescCertificationsTest("input.csv"); }},
-            {"Сортировка по возрастанию количества сертификатов", []() { return MergeSortAscCertificationsTest("input.csv"); }}
+            {"Сортировка по убыванию завершённых кредитов", []() { return MergeSortDescCompletedCreditsTest("input.csv"); }},
+            {"Сортировка по возрастанию завершённых кредитов", []() { return MergeSortAscCompletedCreditsTest("input.csv"); }},
+            {"Сортировка по убыванию GPA", []() { return MergeSortDescGPATest("input.csv"); }},
+            {"Сортировка по возрастанию GPA", []() { return MergeSortAscGPATest("input.csv"); }},
+            {"Сортировка по убыванию годов обучения", []() { return MergeSortDescYearsOfStudyTest("input.csv"); }},
+            {"Сортировка по возрастанию годов обучения", []() { return MergeSortAscYearsOfStudyTest("input.csv"); }}
         };
 
         testGroups["Бинарная вставка"] = {
@@ -142,12 +142,12 @@ private:
             {"Сортировка по возрастанию веса", []() { return BinaryInsertionSortAscWeightTest("binaryinsertion_input.csv"); }},
             {"Сортировка по убыванию роста", []() { return BinaryInsertionSortDescHeightTest("binaryinsertion_input.csv"); }},
             {"Сортировка по возрастанию роста", []() { return BinaryInsertionSortAscHeightTest("binaryinsertion_input.csv"); }},
-            {"Сортировка по убыванию зарплаты", []() { return BinaryInsertionSortDescSalaryTest("binaryinsertion_input.csv"); }},
-            {"Сортировка по возрастанию зарплаты", []() { return BinaryInsertionSortAscSalaryTest("binaryinsertion_input.csv"); }},
-            {"Сортировка по убыванию опыта работы", []() { return BinaryInsertionSortDescExperienceTest("binaryinsertion_input.csv"); }},
-            {"Сортировка по возрастанию опыта работы", []() { return BinaryInsertionSortAscExperienceTest("binaryinsertion_input.csv"); }},
-            {"Сортировка по убыванию количества сертификатов", []() { return BinaryInsertionSortDescCertificationsTest("binaryinsertion_input.csv"); }},
-            {"Сортировка по возрастанию количества сертификатов", []() { return BinaryInsertionSortAscCertificationsTest("binaryinsertion_input.csv"); }}
+            {"Сортировка по убыванию завершённых кредитов", []() { return BinaryInsertionSortDescCompletedCreditsTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по возрастанию завершённых кредитов", []() { return BinaryInsertionSortAscCompletedCreditsTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по убыванию GPA", []() { return BinaryInsertionSortDescGPATest("binaryinsertion_input.csv"); }},
+            {"Сортировка по возрастанию GPA", []() { return BinaryInsertionSortAscGPATest("binaryinsertion_input.csv"); }},
+            {"Сортировка по убыванию годов обучения", []() { return BinaryInsertionSortDescYearsOfStudyTest("binaryinsertion_input.csv"); }},
+            {"Сортировка по возрастанию годов обучения", []() { return BinaryInsertionSortAscYearsOfStudyTest("binaryinsertion_input.csv"); }}
         };
     }
 };
